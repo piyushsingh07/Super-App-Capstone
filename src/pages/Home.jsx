@@ -8,7 +8,7 @@ const Home = () => {
         username: '',
         email: '',
         mobile: '',
-        checkbox: false
+        checkbox: false,
     });
 
     const [error, setError] = useState({
@@ -29,19 +29,19 @@ const Home = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         let error = {};
-        if (data.name || data.name.trim() === "") {
+        if (!data.name || data.name.trim() === "") {
             error.name = 'Name is required';
         }
-        if (data.username || data.username.trim() === "") {
+        if (!data.username || data.username.trim() === "") {
             error.username = 'Username is required';
         }
-        if (data.email || data.email.trim() === "") {
+        if (!data.email || data.email.trim() === "") {
             error.email = 'Email is required';
         }
-        if (data.mobile || data.mobile.trim() === "") {
+        if (!data.mobile || data.mobile.trim() === "") {
             error.mobile = 'Mobile is required';
         }
-        if (data.checkbox === false) {
+        if (!data.checkbox) {
             error.checkbox = 'Checkbox is required';
         }
         setError(error);
